@@ -10,11 +10,11 @@
             <div class="col-md-12">
 
                 <div class="row pb-2">
-                    <div class="col-md-6">
+                    <div class="col-md-6 my-2">
                         <h5 class="color-primary font-weight-normal titulo-grande">Trabajadores</h5>
 
                     </div>
-                    <div class="col-md-6 text-right">
+                    <div class="col-md-6 text-right my2">
                         <b-button variant="primary" size="sm" @click="newWorker()"><i class="fa fa-plus-circle"></i> Nuevo</b-button>
                     </div>
                 </div>
@@ -76,14 +76,14 @@
                     <div class="col-md-12">
                         <div class="row">
                             <template>
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-md-6 mt-2">
                                     <b-form-checkbox v-model="paginateData" @change="isPaginatedOrScrolling" name="check-button" switch>
                                     Paginación (Turn Off para Scrolling)
                                     </b-form-checkbox>
                                 </div>
                             </template>
                             <template v-if="this.paginateData">
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-md-6 mt-2">
                                     <b-pagination
                                         v-model="currentPage"
                                         :total-rows="pagination.total"

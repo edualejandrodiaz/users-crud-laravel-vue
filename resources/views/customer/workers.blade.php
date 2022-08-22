@@ -23,7 +23,6 @@
 @section('content')
   <section>
     <workers-component 
-    :route-products="'{{ route('api.products') }}'" 
     :route-workers="'{{ route('api.workers') }}'" 
     :secret="'{{ $secret }}'"
     :route-more-results="'{{ route('api.workers.more.results') }}'" 

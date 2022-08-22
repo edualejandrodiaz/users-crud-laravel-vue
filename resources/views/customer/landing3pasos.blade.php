@@ -5,7 +5,7 @@
 @section('content')
 
 <section>
-    <landing-component :route-pedido-especial="'{{ route('product.pedido.especial', 0) }}'" ></landing-component>
+    <landing-component></landing-component>
     
 </section>
 

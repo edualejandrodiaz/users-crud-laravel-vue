@@ -111,7 +111,7 @@
 </template>
 <script>
 export default {
-    props: ['routePedidoEspecial'],
+    props: [],
     data(){
         return {
             loaded: false,
@@ -123,18 +123,8 @@ export default {
         }, 2000);
     },
     methods: {
-        goToTheProduct(product){
-            console.log('producto uno ', product.id);
-            location = location.origin+'/product-detail/'+product.id;
-        },
-        searchByWord(value){
-            console.log('search ingredient ',value);
-            location = location.origin+'/productos?search='+value;
-        },
-        specialOrder(value){
-            console.log('pedido especial', value);
-            this.$refs.pedidoEspecial.upModalPedidoEspecial();
-        }
+        
+
     }
 }
 </script>

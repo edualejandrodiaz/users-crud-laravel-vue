@@ -79,6 +79,16 @@
             </div>
             <b-button class="mt-3" block @click="$bvModal.hide('bv-modal-alerta')">Cerrar</b-button>
         </b-modal>
+
+        <b-modal id="bv-modal-delete-exitosa" ref="bv-modal-delete-exitosa" @hidden="emmitClose" hide-footer>
+            <template #modal-title>
+                Alerta
+            </template>
+            <div class="d-block text-center">
+                <h4>{{message}}</h4>
+            </div>
+            <b-button class="mt-3" block @click="$bvModal.hide('bv-modal-delete-exitosa')">Cerrar</b-button>
+        </b-modal>
     </div>
 </template>
 <script>
@@ -121,7 +131,7 @@ export default {
                 active: { required: helpers.withMessage('Estado es requerido', required) },
                 password: { 
                     required: helpers.withMessage('Password es requerido', required),
-                    passwordMediumLevel: helpers.withMessage('Debe contener mínimo 1 minúscula, 1 mayúscula y 1 número',Vue.prototype.$passwordMediumLevel),
+                    passwordMediumLevel: helpers.withMessage('Debe contener mínimo 6 carácteres, mínimo 1 minúscula, 1 mayúscula y 1 número',Vue.prototype.$passwordMediumLevel),
                 },
                 confirm: {
                     required: helpers.withMessage('Repetir es requerido', required), 
@@ -289,8 +299,10 @@ export default {
                     
                     this.message = 'Usuario eliminado con éxito';
                     this.$refs['alert-delete-worker'].hide();
-                    this.$refs['bv-modal-alerta'].show();
-                    this.$root.$emit('worker-created-updated');
+                    this.$refs['bv-modal-delete-exitosa'].show();
+                   
+                    
+                    
                     
                 } else {
                     this.message = 'No se pudo realizar la acción';
@@ -300,6 +312,9 @@ export default {
                 
             })
             .catch(err => console.log(err))
+        },
+        emmitClose(){
+            this.$root.$emit('worker-created-updated');
         },
         deleteWorkerAxios(id){
             return axios.delete(this.routeWorkers+'/'+id, {

@@ -186,6 +186,9 @@ export default {
         this.$root.$on('worker-created-updated', () => {
             if(this.paginateData){
                 this.getWorkersByPage(this.page);
+            } else {
+                this.scrollToTop();
+                this.getWorkersByPage(1);
             }
             
         });
